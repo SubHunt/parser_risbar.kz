@@ -30,6 +30,7 @@ class RisbarParser:
         :return: BeautifulSoup объект
         """
         try:
+            """Костыль. Игнорим данный псевдотовар и идем дальше"""
             if url != "https://risbar.kz#0":
                 print(f"Загрузка: {url}")
                 response = self.session.get(url, timeout=15)
@@ -192,9 +193,10 @@ class RisbarParser:
         # for link in page_links:
         #     print("Link", link)
         #     href = link.get('href')
+
+        """Здесь вбит жесктий костыль на жесткую привязку к количеству страниц 285"""
         page_links = 285
         for link in range(page_links):
-            print(link)
             href = f"https://risbar.kz/catalog/page/{link}/"
             if href and href not in urls:
                 full_url = urljoin(self.base_url, href)
