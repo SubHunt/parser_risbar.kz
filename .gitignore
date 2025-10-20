@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django
 
 .venv/
+1/
+output/
 receiver/
 .idea/
 ### Django ###
