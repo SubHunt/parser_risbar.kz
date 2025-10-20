@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<products category="Кабели Shure" total="1">
+  <product>
+    <url>https://risbar.kz/product/pa720/</url>
+    <title>PA720</title>
+    <description>Описание Shure PA720 — кабель для поясной системы персонального мониторинга (3 м). Оснащён 5-контактным разъёмом LEMO и разъёмами XLR для левого и правого каналов.</description>
+    <details>Производитель: Shure | Наименование: &lt;h3&gt;PA720&lt;/h3&gt; | Партномер: &lt;h3&gt;PA720&lt;/h3&gt;</details>
+    <category>Кабели Shure</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/pa720-1.jpg</image>
+    </images>
+    <price>0</price>
+  </product>
+</products>

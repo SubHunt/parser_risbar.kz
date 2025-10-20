@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<products category="Системы бронирования помещений" total="5">
+  <product>
+    <url>https://risbar.kz/product/sap10e/</url>
+    <title>SAP10e</title>
+    <description>Описание SAP10e позволяет подключить до 10 устройств SLATE106 к сети TCP / IP. При подключении напрямую по RJ45 (PoE), его ввод в эксплуатацию состоит из сопряжения с SLATE106 с помощью веб-браузера или файла конфигурации. В стандартной версии точка доступа может использоваться с программным обеспечением MS PowerPoint, дополненной надстройкой Qeedji Publisher. Слайды MS PowerPoint будут отображаться непосредственно на экранах после отправки задания на публикацию. В версиях прошивки, предназначенных для наших партнеров системных интеграторов, SAP10e позволит синхронизировать содержимое экранов беспроводных дисплеев SLATE106 с сервером, выделенным для построения отображаемых образов. Ключевые характеристики: Питание через Ethernet (PoE) Интегрированный RJ45 разъем Малая мощность: 0,75 Вт Совместимсть с Beacon BLE 5 Модульная прошивка Схема: SLATE106 с BLE Access Point в управлении пространствами С этим товаром покупают Беспроводной дисплей e-paper 6″ SLATE106 INNES SLATE106</description>
+    <details>Производитель: Innes | Наименование: &lt;h3&gt;SAP10e&lt;/h3&gt; | Партномер: &lt;h3&gt;3700568107735&lt;/h3&gt;</details>
+    <category>Системы бронирования помещений</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/sap10e-1.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sap10e-2.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sap10e-2-550x368.jpg</image>
+    </images>
+    <price>0</price>
+  </product>
+  <product>
+    <url>https://risbar.kz/product/sbl10e/</url>
+    <title>SBL10E</title>
+    <description>Описание Основные характеристики: Поддержка PoE (Power over Ethernet) Очень низкое энергопотребление 0,75 Вт Совместим Beacon BLE 5 Модульная прошивка Настраиваемая подсветка Световой индикатор занятости SBL10E предназначен для размещения в любом месте, где необходимо отобразить статус занятости помещений, например в “умных” бизнес-центрах и поликлиниках. Быстрое подключение устройства к системе происходит по интерфейсу RJ45 (PoE). Индикатор оснащен светодиодной подсветкой, настраиваемой на зеленый, красный, синий, желтый или оранжевый свет. В стандартной версии устройство управляется через простой HTTP-запрос или через веб-браузер. Несколько версий прошивки позволяют напрямую синхронизироваться либо со статусом помещения в цифровом макете здания, либо в системе бронирования, такой как MS-Exchange или GSuite. Чертеж</description>
+    <details>Производитель: Innes | Наименование: &lt;h3&gt;SBL10E&lt;/h3&gt; | Партномер: &lt;h3&gt;3700568107445&lt;/h3&gt; | Настройки: HTML5 Web UI | Протоколы передачи данных: HTTP(S), IPv4 | Процессор: Nordic Semiconductor nRF52&lt;br&gt;ARM CryptoCell 310 | LED: красный/зеленый/оранжевый | Сетевые интерфейсы: 1x RJ45 PoE 802.3af (1x Ethernet 10/100 BaseT)&lt;br&gt;1x Bluetooth 5 | Питание: PoE 802.3af | Размеры (Ш × В × Г), мм: 47,56 x 60,47 мм | Вес: 0,035 кг | Температура: 0~40°C | Гарантия: 1 год</details>
+    <category>Системы бронирования помещений</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-1.JPG</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-2.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-3.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-4.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-2.JPG</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-3.JPG</image>
+      <image>https://risbar.kz/wp-content/uploads/product/sbl10e-4.JPG</image>
+    </images>
+    <price>0</price>
+  </product>
+  <product>
+    <url>https://risbar.kz/product/signmeeting/</url>
+    <title>SignMeeting</title>
+    <description>Описание SignMeeting — система отображения расписания переговорных комнат. Приложение настраивается через ПО Screen Composer и загружается: либо в 10” панели управления бронированием переговорной (TAB10s), либо в медиаплеер (DMB400) для отображения сводного расписания или в контроллер беспроводного доступа SMH300 для раздачи контента цифровым кабинетным табличкам SLATE106. SignMeeting взаимодействует с программным обеспечением для управления ресурсами через специальный API (MS-Exchange, G-Suite и т. д.).</description>
+    <details>Производитель: Innes</details>
+    <category>Системы бронирования помещений</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/signmeeting-1.png</image>
+      <image>https://risbar.kz/wp-content/uploads/product/signmeeting-2.png</image>
+      <image>https://risbar.kz/wp-content/uploads/product/signmeeting-2-550x210.png</image>
+    </images>
+    <price>0</price>
+  </product>
+  <product>
+    <url>https://risbar.kz/product/slate106/</url>
+    <title>SLATE106</title>
+    <description>Описание Основные характеристики: Беспроводной ультратонкий 8 мм E-paper дисплей Разрешение 800×600, 4 оттенка серого Встроенный RFID/NFC ридер Кнопка для мгновенного бронирования Встроенный USB-накопитель сверхбольшой ёмкости Встроенное SPE ПО для публикации текста напрямую Предустановленное приложение Mobile Android &amp; iOS для наложения сообщений Управление и динамическое обновление контента через SMH300 (CSV file, MS PowerPoint, Room Booking software), минимальная частота обновления 15 мин API для пользовательских приложений 3 года автономной работы E-Paper Qeedji 6», устройство для идентификации кабинетов, столов и общих пространств, может использоваться как решение для системы бронирования помещений (room booking). Помимо удобной и красивой системы отображения вам будут доступны и некоторые функции Digital Signage: вывод срочных сообщений и отображение расписания данного помещения. Устройства оснащены WPAN-модемом и поддерживают NFC / MIFARE. Это устройство с очень низким энергопотреблением способно работать без замены батареи более 3 лет. В SLATE106 внедрен открытый пользовательский API для индивидуальной настройки (связь со смартфоном и т.д.) С этим товаром покупают Точка доступа для SLATE106 INNES SAP10e</description>
+    <details>Производитель: Innes | Наименование: &lt;h3&gt;SLATE106&lt;/h3&gt; | Партномер: &lt;h3&gt;3700568105991&lt;/h3&gt; | API для настройки пользовательских конфигураций: Пакет разработчика&lt;br&gt;Набор готовых шаблонов | Процессор: STM32L162VC | Поддерживаемое разрешение: 800×6004 оттенка серого | Интерфейсы: 1x 2,4 ГГц WPAN модем&lt;br&gt;1x NFC/Mifare 13.56 МГц считыватель&lt;br&gt;совместимость ISO/IEC 14443A/B &lt;br&gt;3x LED&lt;br&gt;1x USB (для носителей с FAT32) | Сетевые интерфейсы: 1x Ethernet 10/100 BaseT | Питание: 4x CR2430 батареи | Размеры (Ш × В × Г), мм: 152x114x8 мм | Вес: 0,21 кг | Условия эксплуатации: Температура : 0~45°C | Гарантия: 3 года</details>
+    <category>Системы бронирования помещений</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-1.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-2.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-3.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-4.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-2-550x550.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-3-550x413.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/slate106-4-550x413.jpg</image>
+    </images>
+    <price>0</price>
+  </product>
+  <product>
+    <url>https://risbar.kz/product/smh300/</url>
+    <title>SMH300</title>
+    <description>Описание Основные характеристики: Дальность до 20-ти метров HTML5 совместимое Предустановленные ОС Gekkota и eLinux Питание 12 В, поддержка PoE (Power over Ethernet) Экологичность: потребление 7 Вт Бесшумный (пассивное охлаждение) SMH300W ― это контроллер беспроводного доступа по WPAN 2,4 ГГц с движком рендеринга HTML5. Встроенное приложение HTML5 позволяет передавать информацию на сенсорные дисплеи SLATE106, управлять сетевыми светодиодными индикаторами, получать данные от кнопок BLE EnOcean 2,4 ГГц и датчиков движения. Устройство подходит для организации внешней системы идентификации кабинетов и пространств и системы бронирования. Каждый SMH300 поддерживает до 10-ти комплектов (6”+SBL10+датчик движения на EnOcean 2.4 GHz BLE ) или устройств. SMH300 оснащен системой Vesa MIS-E (100×200) для потолочного монтажа. Схема</description>
+    <details>Производитель: Innes | Наименование: &lt;h3&gt;SMH300&lt;/h3&gt; | Партномер: &lt;h3&gt;3700568106240&lt;/h3&gt; | Изображения: JPEG&lt;br&gt;PNG&lt;br&gt;GIF&lt;br&gt;SVG | Текст: Простой текст, форматированный текст HTML5 | Шрифты: TTF&lt;br&gt;OTF&lt;br&gt;WOFF | Веб: HTML5, CSS3, JavaScript | Сетевые протоколы передачи данных: HTTP(S), FTP, UDP, NTP, SMTP, LDAP | CPU: SoC Freescale iMX6 | Хранилище: SD-карта 4 Гб | ОС: Gekkota OS eLinux | Совместимость: HTML5 Веб-приложение | Интерфейсы: 2x USB 2.0&lt;br&gt;1x Jack 3,5 для GPIO или ИК&lt;br&gt;1x 2,4 ГГц WPAN Модем совместим с BLE 4.1 | Сетевые интерфейсы: 1x Ethernet 10/100 BaseT&lt;br&gt;WLAN Wifi 802.11 | Питание: 12 В&lt;br&gt;PoE 802.3 af | Размеры (Ш × В × Г), мм: 258x176x30 мм | Вес, кг: 0,65 кг | Условия эксплуатации: Температура : 0~45°C | Гарантия: 3 года</details>
+    <category>Системы бронирования помещений</category>
+    <article />
+    <availability>Наличие:В наличии</availability>
+    <images>
+      <image>https://risbar.kz/wp-content/uploads/product/smh300-1.png</image>
+      <image>https://risbar.kz/wp-content/uploads/product/smh300-2.jpg</image>
+      <image>https://risbar.kz/wp-content/uploads/product/smh300-2.JPG</image>
+    </images>
+    <price>0</price>
+  </product>
+</products>

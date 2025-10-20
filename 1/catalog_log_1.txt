@@ -1,0 +1,12 @@
+Постраничная навигация
+
+
+Селектор навигации    
+
+.page-numbers
+.woocommerce-pagination
+
+
+
+
+.product__title

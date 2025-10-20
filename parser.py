@@ -5,6 +5,8 @@ import json
 import xml.etree.ElementTree as ET
 from typing import List, Dict
 import time
+import os
+import re
 from urllib.parse import urljoin, urlparse
 
 
@@ -22,6 +24,7 @@ class RisbarParser:
             'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
         })
         self.products = []
+        self.categories_data = {}  # Словарь {category_name: [products]}
 
     def fetch_page(self, url: str) -> BeautifulSoup:
         """
@@ -40,6 +43,22 @@ class RisbarParser:
         except Exception as e:
             print(f"❌ Ошибка загрузки {url}: {e}")
             return None
+
+    def sanitize_filename(self, name: str) -> str:
+        """
+        Очистка имени файла от недопустимых символов
+        :param name: Исходное имя
+        :return: Очищенное имя файла
+        """
+        # Заменяем недопустимые символы
+        name = re.sub(r'[<>:"/\\|?*]', '', name)
+        # Заменяем пробелы на подчеркивания
+        name = name.replace(' ', '_')
+        # Удаляем множественные подчеркивания
+        name = re.sub(r'_+', '_', name)
+        # Убираем подчеркивания в начале и конце
+        name = name.strip('_')
+        return name.lower()
 
     def parse_product(self, product_url: str) -> Dict:
         """
@@ -194,7 +213,7 @@ class RisbarParser:
         #     print("Link", link)
         #     href = link.get('href')
 
-        """Здесь вбит жесктий костыль на жесткую привязку к количеству страниц 285"""
+        """Здесь вбит жесткий костыль на жесткую привязку к количеству страниц 285"""
         page_links = 285
         for link in range(page_links):
             href = f"https://risbar.kz/catalog/page/{link}/"
@@ -253,6 +272,133 @@ class RisbarParser:
                         print(f"📦 Товаров собрано: {count}")
 
         return self.products
+
+    def group_by_categories(self):
+        """
+        Группировка товаров по категориям
+        """
+        print("\n" + "="*60)
+        print("📂 ГРУППИРОВКА ТОВАРОВ ПО КАТЕГОРИЯМ")
+        print("="*60)
+
+        for product in self.products:
+            category = product.get('category', 'Без категории')
+
+            if not category or category.strip() == '':
+                category = 'Без категории'
+
+            if category not in self.categories_data:
+                self.categories_data[category] = []
+
+            self.categories_data[category].append(product)
+
+        print(f"✅ Найдено категорий: {len(self.categories_data)}")
+        for category, products in self.categories_data.items():
+            print(f"  📁 {category}: {len(products)} товаров")
+
+    def save_category_to_csv(self, category_name: str, products: List[Dict], output_dir: str = 'output'):
+        """Сохранение категории в CSV"""
+        os.makedirs(output_dir, exist_ok=True)
+
+        filename = self.sanitize_filename(category_name)
+        filepath = os.path.join(output_dir, f'{filename}.csv')
+
+        with open(filepath, 'w', newline='', encoding='utf-8-sig') as f:
+            fieldnames = ['title', 'article', 'category', 'price', 'availability',
+                          'description', 'details', 'images', 'url']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+            writer.writeheader()
+            for product in products:
+                row = product.copy()
+                row['images'] = '; '.join(product['images'])
+                writer.writerow(row)
+
+        print(f"  ✅ CSV: {filepath}")
+
+    def save_category_to_json(self, category_name: str, products: List[Dict], output_dir: str = 'output'):
+        """Сохранение категории в JSON"""
+        os.makedirs(output_dir, exist_ok=True)
+
+        filename = self.sanitize_filename(category_name)
+        filepath = os.path.join(output_dir, f'{filename}.json')
+
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(products, f, ensure_ascii=False, indent=2)
+
+        print(f"  ✅ JSON: {filepath}")
+
+    def save_category_to_xml(self, category_name: str, products: List[Dict], output_dir: str = 'output'):
+        """Сохранение категории в XML"""
+        os.makedirs(output_dir, exist_ok=True)
+
+        filename = self.sanitize_filename(category_name)
+        filepath = os.path.join(output_dir, f'{filename}.xml')
+
+        root = ET.Element('products')
+        root.set('category', category_name)
+        root.set('total', str(len(products)))
+
+        for product in products:
+            product_elem = ET.SubElement(root, 'product')
+
+            for key, value in product.items():
+                if key == 'images':
+                    images_elem = ET.SubElement(product_elem, 'images')
+                    for img_url in value:
+                        img_elem = ET.SubElement(images_elem, 'image')
+                        img_elem.text = img_url
+                else:
+                    elem = ET.SubElement(product_elem, key)
+                    elem.text = str(value)
+
+        tree = ET.ElementTree(root)
+        ET.indent(tree, space="  ")
+        tree.write(filepath, encoding='utf-8', xml_declaration=True)
+
+        print(f"  ✅ XML: {filepath}")
+
+    def save_by_categories(self, output_dir: str = 'output', formats: List[str] = ['csv', 'json', 'xml']):
+        """
+        Сохранение товаров по категориям в отдельные файлы
+        :param output_dir: Папка для сохранения
+        :param formats: Список форматов ['csv', 'json', 'xml']
+        """
+        if not self.products:
+            print("❌ Нет товаров для сохранения!")
+            return
+
+        # Группируем товары по категориям
+        self.group_by_categories()
+
+        if not self.categories_data:
+            print("❌ Не удалось сгруппировать товары по категориям!")
+            return
+
+        print(f"\n{'='*60}")
+        print(f"💾 СОХРАНЕНИЕ ДАННЫХ ПО КАТЕГОРИЯМ")
+        print(f"{'='*60}")
+        print(f"📁 Папка: {output_dir}")
+        print(f"📋 Форматы: {', '.join(formats)}\n")
+
+        for category_name, products in self.categories_data.items():
+            print(f"📂 {category_name} ({len(products)} товаров)")
+
+            if 'csv' in formats:
+                self.save_category_to_csv(category_name, products, output_dir)
+            if 'json' in formats:
+                self.save_category_to_json(category_name, products, output_dir)
+            if 'xml' in formats:
+                self.save_category_to_xml(category_name, products, output_dir)
+            print()
+
+        print(f"{'='*60}")
+        print(f"✅ ВСЕ КАТЕГОРИИ СОХРАНЕНЫ!")
+        print(f"{'='*60}")
+        print(f"📊 Всего категорий: {len(self.categories_data)}")
+        total_products = sum(len(products)
+                             for products in self.categories_data.values())
+        print(f"📦 Всего товаров: {total_products}")
 
     def save_to_csv(self, filename: str = 'risbar_products.csv'):
         """Сохранение в CSV"""
@@ -329,15 +475,17 @@ if __name__ == "__main__":
     print("🚀 ЗАПУСК ПАРСЕРА RISBAR.KZ")
     print("=" * 60)
 
-    # Парсим каталог (первые 5 товаров для теста)
+    # Парсим каталог (первые 50 товаров для теста)
     parser.parse_catalog(
         catalog_url="https://risbar.kz/catalog/",
-        # max_products=50,  # Для теста берем только 5 товаров
+        # max_products=50,  # Для теста берем только 50 товаров
         # use_pagination=False  # Не парсим все страницы, только первую
+        use_pagination=True  # Парсим ВСЕ страницы каталога
     )
 
-    # Сохраняем результаты
-    parser.save_all_formats('risbar_products')
+    # НОВОЕ: Сохраняем результаты по категориям
+    parser.save_by_categories(output_dir='output', formats=[
+                              'csv', 'json', 'xml'])
 
     print("=" * 60)
     print(f"✅ ГОТОВО! Всего спарсено товаров: {len(parser.products)}")
@@ -349,14 +497,10 @@ if __name__ == "__main__":
         catalog_url="https://risbar.kz/catalog/",
         use_pagination=True  # Парсим ВСЕ страницы каталога
     )
-    parser.save_all_formats('risbar_full_catalog')
+    parser.save_by_categories(output_dir='output', formats=['csv', 'json', 'xml'])
     """
 
-    # Вариант 3: Парсинг конкретной категории
+    # Вариант 3: Старый способ - сохранение всех товаров в один файл
     """
-    parser.parse_catalog(
-        catalog_url="https://risbar.kz/product_cat/naushniki/",  # Замени на нужную категорию
-        use_pagination=True
-    )
-    parser.save_all_formats('risbar_category')
+    parser.save_all_formats('risbar_products')
     """
